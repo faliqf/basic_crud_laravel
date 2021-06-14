@@ -39,7 +39,7 @@
         <div class="container">
             <div class="content">
                 <button><a href="home">Back</a></button>
-                <div class="title">Basic C.R.U.D</div>
+                <div class="title">Basic CRUD</div>
                 <br><br>
                 <button><a href="example/create">Add</a></button>
                 <br><br>
