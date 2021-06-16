@@ -36,6 +36,8 @@ Route::get('/home', function () {
 Route::group(['middleware' => ['web']], function () {
     Route::get('/example', ['as' => 'example', 'uses' => 'ExampleController@index']);
     Route::get('/example/create', ['as' => 'example-add', 'uses' => 'ExampleController@create']);
+    Route::get('/example/register', ['as' => 'example-register', 'uses' => 'UsersController@register']);
+    Route::post('/example/store', ['as' => 'example-store', 'uses' => 'UsersController@store']);
     Route::post('/example/store', ['as' => 'example-store', 'uses' => 'ExampleController@store']);
     Route::get('/example/edit/{id}', ['as' => 'example-edit', 'uses' => 'ExampleController@edit']);
     Route::post('/example/update/{id}', ['as' => 'example-update', 'uses' => 'ExampleController@update']);
