@@ -43,8 +43,6 @@
                 <br><br>
                 <button><a href="example/create">Add</a></button>
                 <br><br>
-                <button><a href="example/register">Register</a></button>
-                <br><br>
                 <div>
                     @if(session('success'))
                          <span class="alert alert-success" role="alert">
