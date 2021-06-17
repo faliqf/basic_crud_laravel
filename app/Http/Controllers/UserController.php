@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\baru;
 
-class ExampleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
