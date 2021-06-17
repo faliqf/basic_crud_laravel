@@ -41,6 +41,8 @@
                 <div class="title">Hello World!</div>
                 <div>
                     <button><a href="example">Basic CRUD</a></button>
+                    <br><br>
+                    <button><a href="example/baru">register</a></button>
                 </div>
             </div>
         </div>
