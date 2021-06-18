@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Create</title>
+        <title>Edit</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -39,9 +39,9 @@
         <div class="container">
             <div class="content">
                 <button><a href="{{ route('example') }}">Back</a></button>
-                <div class="title">Add New</div>
+                <div class="title">Edit & Update</div>
                 <br><br><br><br>
-                <form action="{{ route('example-storeb') }}" method="POST">
+                <form action="{{ route('example-updateb', [$product->id]) }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div>
                         <table >
