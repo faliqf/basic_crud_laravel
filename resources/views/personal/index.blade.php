@@ -41,7 +41,7 @@
                 <button><a href="home">Back</a></button>
                 <div class="title">Basic CRUD</div>
                 <br><br>
-                <button><a href="example/create">Add</a></button>
+                <button><a href="personal/create">Add</a></button>
                 <br><br>
                 <div>
                     @if(session('success'))
@@ -53,21 +53,27 @@
                         <thead>
                             <tr>
                                 <th style="width: 10%;">#</th>
-                                <th style="width: 60%;">NAME</th>
-                                <th style="width: 30%;" colspan=2>ACTION</th>
+                                <th style="width: 20%;">NAME</th>
+                                <th style="width: 20%;">email</th>
+                                <th style="width: 20%;">phone</th>
+                                <th style="width: 20%;">address</th>
+                                <th style="width: 10%;" colspan=2>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($products) > 0)
-                                @foreach ($products as $key => $product)
+                            @if (count($personal_infos) > 0)
+                                @foreach ($personal_infos as $key => $personal)
                                     <tr>
                                         <th style="width: 10%;">{{ $key+1 }}</th>
-                                        <th style="width: 60%;">{{ $product->name }}</th>
-                                        <th style="width: 40%;">
-                                            <button><a href="example/edit/{{ $product->id }}">Edit</a></button>
+                                        <th style="width: 20%;">{{ $personal->name }}</th>
+                                        <th style="width: 20%;">{{ $personal->email }}</th>
+                                        <th style="width: 20%;">{{ $personal->phone_no }}</th>
+                                        <th style="width: 20%;">{{ $personal->address }}</th>
+                                        <th style="width: 10%;">
+                                            <button><a href="personal/edit/{{ $personal->id }}">Edit</a></button>
                                         </th>
                                         <th style="width: 40%;">
-                                            <form action="{{ route('example-delete', [$product->id]) }}" method="POST">
+                                            <form action="{{ route('personal-delete', [$personal->id]) }}" method="POST">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input class="button" type="submit" name="submitdelete" value="Delete">
                                             </form>

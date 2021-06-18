@@ -38,25 +38,37 @@
     <body>
         <div class="container">
             <div class="content">
-                <button><a href="{{ route('example') }}">Back</a></button>
+                <button><a href="{{ route('personal') }}">Back</a></button>
                 <div class="title">Edit & Update</div>
                 <br><br><br><br>
-                <form action="{{ route('example-update', [$product->id]) }}" method="POST">
+                <form action="{{ route('personal-update', [$personal->id]) }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div>
                         <table >
                             <thead>
                                 <tr>
-                                    <th style="width: 60%;">NAME</th>
-                                    <th style="width: 30%;">ACTION</th>
+                                <th style="width: 20%;">NAME</th>
+                                <th style="width: 20%;">email</th>
+                                <th style="width: 20%;">phone</th>
+                                <th style="width: 20%;">address</th>
+                                <th style="width: 10%;" colspan=2>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th style="width: 60%;">
-                                        <input type='text' id='name' name='name' value="{{ $product->name }}"></input>
+                                    <th style="width: 20%;">
+                                        <input type='text' id='name' name='name' value="{{ $personal->name }}"></input>
                                     </th>
-                                    <th style="width: 30%;">
+                                    <th style="width: 20%;">
+                                        <input type='text' id='email' name='email' value="{{ $personal->email }}"></input>
+                                    </th>
+                                    <th style="width: 20%;">
+                                        <input type='text' id='phone_no' name='phone_no' value="{{ $personal->phone_no }}"></input>
+                                    </th>
+                                    <th style="width: 20%;">
+                                        <input type='text' id='address' name='address' value="{{ $personal->address }}"></input>
+                                    </th>
+                                    <th style="width: 10%;">
                                         <button type='submit'>Submit</button>
                                     </th>
                                 </tr>

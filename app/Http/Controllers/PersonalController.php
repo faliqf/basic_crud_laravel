@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Personal;
 
 class PersonalController extends Controller
 {
@@ -15,8 +16,9 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $personal_infos = Personal::get();
+
+        return view('personal.index', compact('personal_infos'));    }
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +27,7 @@ class PersonalController extends Controller
      */
     public function create()
     {
-        //
+        return view('personal.create');
     }
 
     /**
@@ -36,8 +38,14 @@ class PersonalController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $personal = new Personal;
+        $personal->name = $request->name;
+        $personal->email = $request->email;
+        $personal->phone_no = $request->phone_no;
+        $personal->address = $request->address;
+        $personal->save();
+
+        return redirect()->route('personal')->with('success', 'Success!');    }
 
     /**
      * Display the specified resource.
@@ -58,8 +66,9 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $personal = Personal::where('id', $id)->first();
+
+        return view('personal.edit', compact('personal'));    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +79,15 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $personal = Personal::where('id', $id)->first();
+
+        $personal->name = $request->name;
+        $personal->email = $request->email;
+        $personal->phone_no = $request->phone_no;
+        $personal->address = $request->address;
+        $personal->save();
+
+        return redirect()->route('personal')->with('success', 'Success!');
     }
 
     /**
@@ -81,6 +98,8 @@ class PersonalController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $personal = Personal::where('id', $id)->first();
+        $personal->delete();
+
+        return redirect()->route('personal')->with('success', 'Success!');    }
 }
