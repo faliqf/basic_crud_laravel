@@ -42,6 +42,9 @@
                 <div>
                     <button><a href="example">Basic CRUD</a></button>
                 </div>
+                <div>
+                    <button><a href="personal">Personal info</a></button>
+                </div>
             </div>
         </div>
     </body>
