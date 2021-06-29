@@ -61,7 +61,46 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($personal_infos) > 0)
+                            @if (count($personal_infos) > 0) || substr($personal->phone_no,-1) == '0' || substr($personal->phone_no,-1) == '2' || substr($personal->phone_no,-1) == '4' || substr($personal->phone_no,-1) == '6' || substr($personal->phone_no,-1) == '8')
+                                @foreach ($personal_infos as $key => $personal)
+                                    <tr>
+                                        <th style="width: 10%;">{{ $key+1 }}</th>
+                                        <th style="width: 20%;">{{ $personal->name }}</th>
+                                        <th style="width: 20%;">{{ $personal->email }}</th>
+                                        <th style="width: 20%;">{{ $personal->phone_no }}</th>
+                                        <th style="width: 20%;">{{ $personal->address }}</th>
+                                        <th style="width: 10%;">
+                                            <button><a href="personal/edit/{{ $personal->id }}">Edit</a></button>
+                                        </th>
+                                        <th style="width: 40%;">
+                                            <form action="{{ route('personal-delete', [$personal->id]) }}" method="POST">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input class="button" type="submit" name="submitdelete" value="Delete">
+                                            </form>
+                                        </th>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan=3 align='center'>No Record found</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    <br><br>
+                    <table align='center'>
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;">#</th>
+                                <th style="width: 20%;">NAME</th>
+                                <th style="width: 20%;">email</th>
+                                <th style="width: 20%;">phone</th>
+                                <th style="width: 20%;">address</th>
+                                <th style="width: 10%;" colspan=2>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (count($personal_infos) > 0 )
                                 @foreach ($personal_infos as $key => $personal)
                                     <tr>
                                         <th style="width: 10%;">{{ $key+1 }}</th>
